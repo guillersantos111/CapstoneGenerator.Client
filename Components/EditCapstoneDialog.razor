@@ -1,0 +1,21 @@
+﻿@page "/editcapstonedialog"
+@inherits EditCapstoneBase
+
+
+<MudDialog DisableSidePadding = "false">
+    <DialogContent>
+        <EditForm Model="capstones" OnValidSubmit="Save">
+            <MudText Typo="Typo.h5">@((capstones.CapstoneId == 0) ? "Add New Capstone" : "Edit Capstone")</MudText>
+
+            <MudTextField T="string" Label="Title" @bind-Value="capstones.Title" Required="true"></MudTextField>
+            <MudTextField T="string" Label="Descriptions" @bind-Value="capstones.Description" Required="true"></MudTextField>
+            <MudTextField T="string" Label="Categories" @bind-Value="capstones.Categories" Required="true"></MudTextField>
+            <MudTextField T="string" Label="Created By" @bind-Value="capstones.CreatedBy" Required="true"></MudTextField>
+
+            <MudCardActions>
+                <MudButton Color="Color.Primary" OnClick="Save">Save</MudButton>
+                <MudButton Color="Color.Secondary" OnClick="Cancel">Cancel</MudButton>
+            </MudCardActions>
+        </EditForm>
+    </DialogContent>
+</MudDialog>

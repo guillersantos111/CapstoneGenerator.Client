@@ -1,0 +1,60 @@
+﻿@inherits LayoutComponentBase
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager NavigationManager
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+<MudLayout>
+    <MudAppBar Color="Color.Dark" Elevation="5">
+        <MudContainer Class="d-none d-md-flex">
+            <MudList Class="d-flex">
+                <MudListItem><a href="/home" class="appbar-menu">Home</a></MudListItem>
+                <MudListItem><a href="/capstone" class="appbar-menu">Add</a></MudListItem>
+                <MudListItem><a href="/home" class="appbar-menu">Generate</a></MudListItem>
+            </MudList>
+        </MudContainer>
+
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" OnClick="@ToggleDrawer" Edge="Edge.End" Class="d-md-none" />
+
+        <MudContainer Class="d-none d-md-flex justify-content-end">
+            <MudIconButton Class="me-2" Icon="@Icons.Custom.Brands.Facebook" Color="Color.Inherit" Link="https://www.facebook.com/guillersantos23" Target="_blank" />
+            <MudIconButton Class="me-2" Icon="@Icons.Custom.Brands.LinkedIn" Color="Color.Inherit" Target="_blank" />
+            <MudIconButton Class="me-2" Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/guillersantos111" Target="_blank" />
+        </MudContainer>
+    </MudAppBar>
+
+    <MudDrawer Class="d-md-none" @bind-Open="drawerOpen" Color="Color.Dark" ClipMode="DrawerClipMode.Never" Anchor="Anchor.Right" Elevation="3">
+        <MudContainer Class="d-grid gap-4">
+            <MudList>
+                <MudListItem><a href="/home" class="appbar-menu">Home</a></MudListItem>
+                <MudListItem><a href="/capstone" class="appbar-menu">Add</a></MudListItem>
+                <MudListItem><a href="/home" class="appbar-menu">Generate</a></MudListItem>
+            </MudList>
+            <MudContainer>
+                <MudIconButton Class="me-2" Icon="@Icons.Custom.Brands.Facebook" Color="Color.Inherit" Link="https://www.facebook.com/guillersantos23" Target="_blank" />
+                <MudIconButton Class="me-2" Icon="@Icons.Custom.Brands.LinkedIn" Color="Color.Inherit" Target="_blank" />
+                <MudIconButton Class="me-2" Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/guillersantos111" Target="_blank" />
+            </MudContainer>
+        </MudContainer>
+    </MudDrawer>
+
+    <MudMainContent>
+        <MudContainer Class="content px-4">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+
+
+@code{
+    private bool drawerOpen = false;
+
+    private void ToggleDrawer()
+    {
+        drawerOpen = !drawerOpen;
+    }
+}

@@ -1,0 +1,15 @@
+# Ignore Visual Studio temporary files
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Ignore build folders
+bin/
+obj/
+
+# Ignore other common unwanted files
+*.log
+*.tmp
