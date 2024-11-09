@@ -1,0 +1,70 @@
+﻿@page "/generator"
+@inherits GeneratorBase
+
+@if (IsLoading)
+{
+    <MudContainer Class="loader"/>
+}
+else
+{
+    <MudGrid Justify="Justify.Center">
+        <MudMainContent Class="container p-4 m-4 mx-auto px-4 px-sm-5 px-lg-5 py-5 flex-grow-1">
+            <MudContainer Class="text-center mb-5 mb-sm-5">
+                <MudText Typo="Typo.h2" Class="ps-1 mb-5" Style="font-weight: bolder;">Capstone Idea Generator Web Application</MudText>
+                <MudText Typo="Typo.h6" Class="ps-1 mb-5" Style="font-weight: 100;">Discover your next capstone ideas!</MudText>
+            </MudContainer>
+
+            <MudGrid Justify="Justify.Center" Class="d-flex">
+                <MudItem>
+                    <MudContainer>
+                        <MudPaper>
+                            <MudForm>
+                                <MudContainer>
+                                    <MudText Class="fs-5 fw-bold" /> Categories
+                                    <MudSelect Class="p-4 m-4" T="string" AnchorOrigin="Origin.BottomCenter">
+                                        @foreach (var category in Categories)
+                                        {
+                                            <MudSelectItem Value="@category">@category</MudSelectItem>
+                                        }
+                                    </MudSelect>
+                                </MudContainer>
+                            </MudForm>>
+                        </MudPaper>
+
+                        <MudPaper>
+                            <MudButton Class="btn-generate fs-6 fw-bold" OnClick="GenerateIdea" Style="background-color:limegreen; color: white">
+                                GENERATE IDEAS HERE!
+                                <div class="moving-icon-container m-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animated-icon">
+                                        <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72"></path>
+                                        <path d="m14 7 3 3"></path>
+                                        <path d="M5 6v4"></path>
+                                        <path d="M19 14v4"></path>
+                                        <path d="M10 2v2"></path>
+                                        <path d="M7 8H3"></path>
+                                        <path d="M21 16h-4"></path>
+                                        <path d="M11 3H9"></path>
+                                    </svg>
+                                </div>
+                            </MudButton>
+                        </MudPaper>
+                    </MudContainer>
+                </MudItem>
+
+                <MudPaper>
+                    <MudContainer>
+                        <MudPaper>
+                            <MudForm Class="position-relative pb-lg-5" Style="will-change:contents transform: none">
+                                <MudText Typo="Typo.h3">aaaa</MudText>
+
+
+                            </MudForm>
+                            <MudButton Class="btn-nextIdea">Next<MudIcon Icon="@Icons.Material.Filled.SkipNext" /></MudButton>
+                        </MudPaper>
+                    </MudContainer>
+                </MudPaper>
+            </MudGrid>
+        </MudMainContent>
+    </MudGrid>
+}
+

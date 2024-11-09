@@ -1,60 +1,13 @@
-﻿﻿:root {
-    --uib-size: 60px; /* Change size of the loader */
-    --uib-color: #4caf50; /* Change color of particles */
-    --uib-speed: 1.2s; /* Speed of the animation */
+﻿.loader {
+    width: 120px;
+    height: 24px;
+    -webkit-mask: radial-gradient(circle closest-side,#000 94%,#0000) 0 0/25% 100%, linear-gradient(#000 0 0) center/calc(100% - 12px) calc(100% - 12px) no-repeat;
+    background: linear-gradient(#25b09b 0 0) 0/0% no-repeat #ddd;
+    animation: l7 2s infinite linear;
 }
 
-.loader {
-    position: relative;
-    height: var(--uib-size);
-    width: var(--uib-size);
-    animation: rotate calc(var(--uib-speed) * 4) linear infinite;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
+@keyframes l7 {
     100% {
-        transform: rotate(360deg);
-    }
-}
-
-.particle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
-
-    .particle::before {
-        content: '';
-        position: absolute;
-        height: 50%; /* Change particle size */
-        width: 50%; /* Change particle size */
-        border-radius: 50%;
-        background-color: var(--uib-color);
-        animation: orbit var(--uib-speed) linear infinite;
-    }
-
-@keyframes orbit {
-    0% {
-        transform: translate(20px) scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: translate(-20px) scale(0.8);
-        opacity: 0.7;
-    }
-
-    100% {
-        transform: translate(20px) scale(1);
-        opacity: 1;
+        background-size: 100%
     }
 }

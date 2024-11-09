@@ -1,5 +1,5 @@
 ﻿using CapstoneGenerator.Client.Components;
-using CapstoneGenerator.Client.Services.Contracts;
+using CapstoneGenerator.Client.Services.Interfaces;
 using CapstoneGenerator.Shared.Models;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
@@ -14,6 +14,7 @@ namespace CapstoneGenerator.Client.Presentations.Pages.AddCapstonePage
         [Inject] private ICapstoneService CapstoneService { get; set; }
         [Inject] private IDialogService DialogService { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
+        public bool IsLoading { get; set; } = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -22,9 +23,10 @@ namespace CapstoneGenerator.Client.Presentations.Pages.AddCapstonePage
 
         private async Task LoadCapstones()
         {
+            IsLoading = true;
             try
             {
-                var response = await CapstoneService.GetAll();
+                var response = await CapstoneService.GetAllCapstones();
                 Capstones = response?.ToList() ?? new List<CapstonesDTO>();
 
                 if (response == null)
@@ -73,7 +75,7 @@ namespace CapstoneGenerator.Client.Presentations.Pages.AddCapstonePage
             }
         }
 
-        public async Task RemoveCapstone(int id)
+        public async Task RemoveCapstone(int Id)
         {
             bool? confirm = await DialogService.ShowMessageBox("Delete Confirmation", "Are you sure you want to delete this Capstone?", yesText: "Delete", cancelText: "Cancel");
 
@@ -81,7 +83,7 @@ namespace CapstoneGenerator.Client.Presentations.Pages.AddCapstonePage
             {
                 try
                 {
-                    await CapstoneService.Remove(id);
+                    await CapstoneService.RemoveCapstone(Id);
                     Snackbar.Add("Capstone Removed Successfully!", Severity.Success);
                     await LoadCapstones();
                 }

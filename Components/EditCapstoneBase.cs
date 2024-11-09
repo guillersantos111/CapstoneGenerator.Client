@@ -1,5 +1,5 @@
 ﻿using CapstoneGenerator.Client.Presentations.Pages.CapstonePage;
-using CapstoneGenerator.Client.Services.Contracts;
+using CapstoneGenerator.Client.Services.Interfaces;
 using CapstoneGenerator.Shared.Models;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
@@ -20,11 +20,11 @@ namespace CapstoneGenerator.Client.Components
             {
                 if (capstones.CapstoneId == 0)
                 {
-                    await CapstoneService.Add(capstones);
+                    await CapstoneService.AddCapstone(capstones);
                 }
                 else
                 {
-                    await CapstoneService.Update(capstones.CapstoneId, capstones);
+                    await CapstoneService.UpdateCapstone(capstones.CapstoneId, capstones);
                 }
             }
             else

@@ -32,6 +32,25 @@ html, body {
 /*---------------------------------------------------------------------------------------------------*/
 
 
+.btn-nextIdea {
+    background-color: lightseagreen;
+    border-radius: 5px;
+    align-items: center;
+    color: white;
+    width: 100px;
+    height: 50px;
+}
+
+    .btn-nextIdea:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.60);
+    }
+
+    .btn-nextIdea:active {
+        transform: translateY(1px);
+    }
+
+
 .btn-generate {
     background-color: lightseagreen;
     border-radius: 5px;
