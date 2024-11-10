@@ -1,22 +1,28 @@
 ﻿@page "/generator"
+@using CapstoneGenerator.Client.Shared
 @inherits GeneratorBase
 
-<MudGrid Justify="Justify.Center">
-    <MudMainContent Class="container p-4 mb-5 mx-auto px-4 px-sm-5 px-lg-5 py-5 flex-grow-1">
-        <MudContainer Class="text-center mb-5">
-            <MudText Typo="Typo.h4" Class="ps-1 mb-5" Style="font-weight: bolder;">
-                Capstone Idea Generator Web Application
-            </MudText>
-            <MudText Typo="Typo.h6" Class="ps-1 mb-5" Style="font-weight: 100;">
-                Discover your next capstone ideas!
-            </MudText>
-        </MudContainer>
+@if (isLoading)
+{
+    <Loader />
+}
+else
+{
+    <MudGrid Justify="Justify.Center">
+        <MudMainContent Class="container p-4 mb-5 mx-auto px-4 px-sm-5 px-lg-5 py-5 flex-grow-1">
+            <MudContainer Class="text-center mb-5">
+                <MudText Typo="Typo.h4" Class="ps-1 mb-5" Style="font-weight: bolder;">
+                    Capstone Idea Generator Web Application
+                </MudText>
+                <MudText Typo="Typo.h6" Class="ps-1 mb-5" Style="font-weight: 100;">
+                    Discover your next capstone ideas!
+                </MudText>
+            </MudContainer>
 
-
-        <MudGrid Justify="Justify.SpaceBetween">
-            <MudItem Class="d-flex flex-row">
+            <MudGrid Justify="Justify.SpaceBetween">
+                <MudItem Class="d-flex flex-row">
                     <MudPaper Class="justify-content-center d-flex" Style="height: 700px; width: 450px; display: flex; align-items: center; justify-content: center;">
-                        <MudContainer AlignItems="AlignItems.Center" Justify="Justify.Center" Class="text-center" Style="width: 100%;">
+                        <MudContainer Class="text-center" Style="width: 100%;">
                             <MudSelect @bind-Value="selectedCategory" Class="p-4 mb-4" T="string" Label="Select Category" AnchorOrigin="Origin.BottomCenter" Style="width: 300px;">
                                 @foreach (var category in categories)
                                 {
@@ -24,7 +30,7 @@
                                 }
                             </MudSelect>
 
-                            <MudButton Class="btn-generate fs-6 fw-bold" OnClick="GenerateIdea" Style="background-color:limegreen; color: white; height: 40px; width: 400px;">
+                            <MudButton Class="btn-generate fs-6 fw-bold bg-success" OnClick="GenerateIdea" Style="color: white; height: 50px; width: 400px;">
                                 GENERATE IDEAS HERE!
                                 <div class="moving-icon-container m-3">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animated-icon">
@@ -42,23 +48,23 @@
                         </MudContainer>
                     </MudPaper>
 
-
                     <MudContainer Class="p-5" Style="">
                         <MudPaper Style="height: 600px; width: 650px">
                             <MudContainer Class="p-4">
                                 <MudText Class="mb-3" Typo="Typo.h5">@generatedCapstone?.Title</MudText>
-                                <MudText Class="text-opacity-25 fs-6 mb-2">@generatedCapstone?.Description</MudText>
+                                <MudText Class="text-opacity-25 fs-6 mb-2" Style="opacity: 3px">@generatedCapstone?.Description</MudText>
                             </MudContainer>
 
                             <MudContainer>
-                                <MudButton Class="btn-nextIdea" OnClick="NextIdea">
+                                <MudButton Class="btn-nextIdea bg-success" Style="color:white; height: 50px; width:120px" OnClick="NextIdea">
                                     Next
                                     <MudIcon Icon="@Icons.Material.Filled.SkipNext" />
                                 </MudButton>
                             </MudContainer>
                         </MudPaper>
                     </MudContainer>
-            </MudItem>
-        </MudGrid>
-    </MudMainContent>
-</MudGrid>
+                </MudItem>
+            </MudGrid>
+        </MudMainContent>
+    </MudGrid>
+}

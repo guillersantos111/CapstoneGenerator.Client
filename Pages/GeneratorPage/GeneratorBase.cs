@@ -14,17 +14,23 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
         public string? selectedCategory;
         public CapstonesDTO? generatedCapstone;
         public bool isIdeaGenerated = false;
+        public bool isLoading { get; set; } = false;
 
 
         protected override async Task OnInitializedAsync()
         {
             try
             {
+                isLoading = true;
                 categories = await generatorService.GetAllCategories();
             }
             catch (Exception ex)
             {
                 Snackbar.Add($"Error Fetching Categories: {ex.Message}", Severity.Error);
+            }
+            finally
+            {
+                isLoading = false;
             }
         }
 
@@ -36,14 +42,24 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
                 Snackbar.Add("Please Select A Category", Severity.Warning);
                 return;
             }
+            else if (isIdeaGenerated && selectedCategory == generatedCapstone?.Categories)
+            {
+                return;
+            }
 
             try
             {
+                isLoading = true;
                 generatedCapstone = await generatorService.GetByCategoryOrGenerateIdea(selectedCategory!);
+                isIdeaGenerated = true;
             }
             catch (Exception ex)
             {
                 Snackbar.Add($"Error Generating Idea: {ex.Message}", Severity.Error);
+            }
+            finally
+            {
+                isLoading = false;
             }
         }
 
@@ -55,6 +71,7 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
                 Snackbar.Add($"Please Generate Idea First", Severity.Warning);
                 return;
             }
+
             try
             {
                 generatedCapstone = await generatorService.GetByCategoryOrGenerateIdea(selectedCategory!);
@@ -65,6 +82,5 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
                 Snackbar.Add($"Error Generating Next Idea: {ex.Message}", Severity.Error);
             }
         }
-
     }
 }

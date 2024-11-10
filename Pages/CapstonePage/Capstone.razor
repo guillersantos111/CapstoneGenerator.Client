@@ -1,42 +1,49 @@
 ﻿@page "/capstone"
 @using MudBlazor.Services
 @using CapstoneGenerator.Client.Pages.CapstonePage
+@using CapstoneGenerator.Client.Shared
 @inherits CapstoneBase
 
+@if (isLoading)
+{
+    <Loader/>
+}
+else
+{
+    <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
+        <MudPaper Elevation="1" Class="pa-4">
+            <MudText Typo="Typo.h4" Class="mb-2">Capstone Projects</MudText>
 
-<MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
-    <MudPaper Elevation="1" Class="pa-4">
-        <MudText Typo="Typo.h4" Class="mb-2">Capstone Projects</MudText>
-
-        <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Success" OnClick="() => AddCapstone()" Class="mt-2">
-            <MudText Class="fs-5 fw-bold" Color="Color.Primary">
-                Add New Capstone
-            </MudText>
+            <MudIconButton Icon="@Icons.Material.Filled.Add" Color="Color.Success" OnClick="() => AddCapstone()" Class="mt-2">
+                <MudText Class="fs-5 fw-bold" Color="Color.Primary">
+                    Add New Capstone
+                </MudText>
             </MudIconButton>
 
-        <MudTable Items="Capstones" Striped="true" Hover="true" Height="700px" FixedHeader="true" Class="table-responsive-sm">
-            <HeaderContent>
-                <MudTh>Title</MudTh>
-                <MudTh>Description</MudTh>
-                <MudTh>Categories</MudTh>
-                <MudTh>Created By</MudTh>
-                <MudTh>Actions</MudTh>
-            </HeaderContent>
-            <RowTemplate>
-                <MudTd>@context.Title</MudTd>
-                <MudTd>@context.Description</MudTd>
-                <MudTd>@context.Categories</MudTd>
-                <MudTd>@context.CreatedBy</MudTd>
-                <MudTd>
-                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="() => UpdateCapstone(context)" />
-                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="() => RemoveCapstone(context.CapstoneId)" />
-                </MudTd>
-            </RowTemplate>
-            <NoRecordsContent>
-                <MudContainer>
-                    <MudText Typo="Typo.body2" Align="Align.Center">No capstone projects found.</MudText>
-                </MudContainer>
-            </NoRecordsContent>
-        </MudTable>
-    </MudPaper>
-</MudContainer>
+            <MudTable Items="Capstones" Striped="true" Hover="true" Height="700px" FixedHeader="true" Class="table-responsive-sm">
+                <HeaderContent>
+                    <MudTh>Title</MudTh>
+                    <MudTh>Description</MudTh>
+                    <MudTh>Categories</MudTh>
+                    <MudTh>Created By</MudTh>
+                    <MudTh>Actions</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd>@context.Title</MudTd>
+                    <MudTd>@context.Description</MudTd>
+                    <MudTd>@context.Categories</MudTd>
+                    <MudTd>@context.CreatedBy</MudTd>
+                    <MudTd>
+                        <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="() => UpdateCapstone(context)" />
+                        <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="() => RemoveCapstone(context.CapstoneId)" />
+                    </MudTd>
+                </RowTemplate>
+                <NoRecordsContent>
+                    <MudContainer>
+                        <MudText Typo="Typo.body2" Align="Align.Center">No capstone projects found.</MudText>
+                    </MudContainer>
+                </NoRecordsContent>
+            </MudTable>
+        </MudPaper>
+    </MudContainer>
+}

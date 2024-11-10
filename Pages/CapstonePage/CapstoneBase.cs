@@ -14,6 +14,7 @@ namespace CapstoneGenerator.Client.Pages.CapstonePage
         [Inject] private ICapstoneService CapstoneService { get; set; }
         [Inject] private IDialogService DialogService { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
+        public bool isLoading { get; set; } = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -24,8 +25,10 @@ namespace CapstoneGenerator.Client.Pages.CapstonePage
         {
             try
             {
+                isLoading = true;
                 var response = await CapstoneService.GetAllCapstones();
                 Capstones = response?.ToList() ?? new List<CapstonesDTO>();
+                isLoading = true;
 
                 if (response == null)
                 {
@@ -34,6 +37,7 @@ namespace CapstoneGenerator.Client.Pages.CapstonePage
                 else
                 {
                     Capstones = response.ToList();
+                    isLoading = false;
                 }
             }
             catch (HttpRequestException httpEx)
