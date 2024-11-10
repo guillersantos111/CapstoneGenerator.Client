@@ -4,17 +4,16 @@ using CapstoneGenerator.Shared.Models;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
-namespace CapstoneGenerator.Client.Presentations.Pages.AddCapstonePage
+namespace CapstoneGenerator.Client.Pages.CapstonePage
 {
     public class CapstoneBase : ComponentBase
     {
         public ICollection<CapstonesDTO> Capstones { get; private set; } = new List<CapstonesDTO>();
-        private readonly DialogOptions dialogOptions = new DialogOptions { MaxWidth = MaxWidth.Medium, FullWidth = true, NoHeader = true};
+        private readonly DialogOptions dialogOptions = new DialogOptions { MaxWidth = MaxWidth.Medium, FullWidth = true, NoHeader = true };
 
         [Inject] private ICapstoneService CapstoneService { get; set; }
         [Inject] private IDialogService DialogService { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
-        public bool IsLoading { get; set; } = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -23,7 +22,6 @@ namespace CapstoneGenerator.Client.Presentations.Pages.AddCapstonePage
 
         private async Task LoadCapstones()
         {
-            IsLoading = true;
             try
             {
                 var response = await CapstoneService.GetAllCapstones();

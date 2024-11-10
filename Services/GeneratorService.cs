@@ -8,11 +8,11 @@ namespace CapstoneGenerator.Client.Services
     {
         private readonly HttpClient httpClient;
 
-        public GeneratorService
-            (HttpClient httpClient)
+        public GeneratorService(HttpClient httpClient)
         {
             this.httpClient = httpClient;
         }
+
         public async Task<IEnumerable<string>> GetAllCategories()
         {
             return await httpClient.GetFromJsonAsync<IEnumerable<string>>("/api/Generator/categories");
@@ -20,7 +20,7 @@ namespace CapstoneGenerator.Client.Services
 
         public async Task<CapstonesDTO> GetByCategoryOrGenerateIdea(string category)
         {
-            return await httpClient.GetFromJsonAsync<CapstonesDTO>("/api/Generator/idea/{category}");
+            return await httpClient.GetFromJsonAsync<CapstonesDTO>($"/api/Generator/idea/{category}");
         }
     }
 }

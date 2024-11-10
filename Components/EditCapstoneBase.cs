@@ -1,4 +1,4 @@
-﻿using CapstoneGenerator.Client.Presentations.Pages.CapstonePage;
+﻿using CapstoneGenerator.Client.Pages.CapstonePage;
 using CapstoneGenerator.Client.Services.Interfaces;
 using CapstoneGenerator.Shared.Models;
 using Microsoft.AspNetCore.Components;

@@ -3,27 +3,24 @@ using CapstoneGenerator.Shared.Models;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
-namespace CapstoneGenerator.Client.Presentations.Pages.GeneratorPage
+namespace CapstoneGenerator.Client.Pages.GeneratorPage
 {
     public class GeneratorBase : ComponentBase
     {
-        public IEnumerable<string> Categories { get; private set; } = new List<string>();
-
         [Inject] private IGeneratorService generatorService { get; set; }
         [Inject] private ISnackbar Snackbar { get; set; }
-        public bool IsLoading { get; set; } = false;
-        
 
+        public IEnumerable<string> categories { get; private set; } = new List<string>();
+        public string? selectedCategory;
+        public CapstonesDTO? generatedCapstone;
+        public bool isIdeaGenerated = false;
 
-        private string selectedCategory;
-
-        private CapstonesDTO generatedCapstone;
 
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                Categories = await generatorService.GetAllCategories();
+                categories = await generatorService.GetAllCategories();
             }
             catch (Exception ex)
             {
@@ -42,14 +39,32 @@ namespace CapstoneGenerator.Client.Presentations.Pages.GeneratorPage
 
             try
             {
-                generatedCapstone = await generatorService.GetByCategoryOrGenerateIdea(selectedCategory);
-
-                Snackbar.Add($"Generated Idea: {generatedCapstone?.Description}", Severity.Success);
+                generatedCapstone = await generatorService.GetByCategoryOrGenerateIdea(selectedCategory!);
             }
             catch (Exception ex)
             {
                 Snackbar.Add($"Error Generating Idea: {ex.Message}", Severity.Error);
             }
         }
+
+
+        public async Task NextIdea()
+        {
+            if (generatedCapstone == null)
+            {
+                Snackbar.Add($"Please Generate Idea First", Severity.Warning);
+                return;
+            }
+            try
+            {
+                generatedCapstone = await generatorService.GetByCategoryOrGenerateIdea(selectedCategory!);
+                StateHasChanged();
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"Error Generating Next Idea: {ex.Message}", Severity.Error);
+            }
+        }
+
     }
 }

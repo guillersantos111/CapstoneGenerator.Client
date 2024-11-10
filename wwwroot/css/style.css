@@ -51,14 +51,11 @@ html, body {
     }
 
 
+/*---------------------------------------------------------------------------------------------------*/
+
+
 .btn-generate {
-    background-color: lightseagreen;
     border-radius: 5px;
-    display: flex;
-    align-items: center;
-    color: white;
-    width: 500px;
-    height: 50px;
 }
 
     .btn-generate:hover {

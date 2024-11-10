@@ -1,17 +1,9 @@
 ﻿@page "/capstone"
 @using MudBlazor.Services
-@using CapstoneGenerator.Client.Presentations.Pages.AddCapstonePage
+@using CapstoneGenerator.Client.Pages.CapstonePage
 @inherits CapstoneBase
 
 
-@if (IsLoading)
-{
-    <MudContainer Class="loader" />
-}
-else
-{
-    
-}
 <MudContainer MaxWidth="MaxWidth.ExtraExtraLarge">
     <MudPaper Elevation="1" Class="pa-4">
         <MudText Typo="Typo.h4" Class="mb-2">Capstone Projects</MudText>
