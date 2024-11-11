@@ -68,12 +68,6 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
 
         public async Task NextIdea()
         {
-            if (generatedCapstone == null)
-            {
-                Snackbar.Add($"Please Generate Idea First", Severity.Warning);
-                return;
-            }
-
             try
             {
                 isGenerated = true;
