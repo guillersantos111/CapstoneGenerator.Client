@@ -15,6 +15,7 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
         public CapstonesDTO? generatedCapstone;
         public bool isIdeaGenerated = false;
         public bool isLoading { get; set; } = false;
+        public bool isGenerated = false;
 
 
         protected override async Task OnInitializedAsync()
@@ -50,6 +51,7 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
             try
             {
                 isLoading = true;
+                isGenerated = true;
                 generatedCapstone = await generatorService.GetByCategoryOrGenerateIdea(selectedCategory!);
                 isIdeaGenerated = true;
             }
@@ -74,6 +76,7 @@ namespace CapstoneGenerator.Client.Pages.GeneratorPage
 
             try
             {
+                isGenerated = true;
                 generatedCapstone = await generatorService.GetByCategoryOrGenerateIdea(selectedCategory!);
                 StateHasChanged();
             }
