@@ -23,25 +23,7 @@ html, body {
         font-weight: bold;
         padding: 8px;
         cursor: pointer;
-        background-color: rgba(255, 255, 255, 0.1);
-    }
-
-
-/*---------------------------------------------------------------------------------------------------*/
-
-
-.btn-nextIdea {
-    background-color: rgb(9, 39, 22);
-    border-radius: 5px;
-}
-
-    .btn-nextIdea:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.60);
-    }
-
-    .btn-nextIdea:active {
-        transform: translateY(1px);
+        background-color: rgb(0, 0, 0);
     }
 
 
@@ -62,54 +44,81 @@ html, body {
 /*---------------------------------------------------------------------------------------------------*/
 
 
+.btn-nextIdea {
+    color: white !important;
+    background-color: rgba(22, 162, 73) !important;
+    height: 45px;
+    width: 110px;
+    border-radius: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .btn-nextIdea:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-nextIdea:active {
+        transform: translateY(1px);
+    }
+
+
+/*---------------------------------------------------------------------------------------------------*/
+
+
 .btn-generate {
-    background-color: rgb(8, 56, 54);
+    color: white !important;
+    border-radius: 5px;
+    background-color: rgb(22, 162, 73) !important;
+    height: 45px;
+    width: 300px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
     .btn-generate:hover {
         transform: translateY(-2px);
-        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.60);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
     btn-generate:active {
         transform: translateY(1px);
     }
 
-.animated-icon {
-    animation: move-up-down 1.5s ease-in-out infinite, color-change 5s linear infinite;
-    will-change: transform, stroke;
+    .animated-icon {
+        animation: move-up-down 1.5s ease-in-out infinite, color-change 5s linear infinite;
+        will-change: transform, stroke;
+    }
+
+    @keyframes move-up-down {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-3px);
+        }
 }
 
-@keyframes move-up-down {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-3px);
-    }
-}
-
-@keyframes color-change {
-    0% {
-        stroke: #ff0000;
-    }
-    16% {
-        stroke: #ff7f00;
-    }
-    33% {
-        stroke: #ffff00;
-    }
-    50% {
-        stroke: #00ff00;
-    }
-    66% {
-        stroke: #0000ff;
-    }
-    83% {
-        stroke: #4b0082;
-    }
-    100% {
-        stroke: #9400d3;
-    }
+    @keyframes color-change {
+        0% {
+            stroke: #ff0000;
+        }
+        16% {
+            stroke: #ff7f00;
+        }
+        33% {
+            stroke: #ffff00;
+        }
+        50% {
+            stroke: #00ff00;
+        }
+        66% {
+            stroke: #0000ff;
+        }
+        83% {
+            stroke: #4b0082;
+        }
+        100% {
+            stroke: #9400d3;
+        }
 }

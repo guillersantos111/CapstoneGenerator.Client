@@ -19,13 +19,18 @@ else
         </MudContainer>
 
         <MudItem Class="col-lg-12 row g-2">
-            <MudPaper Class="mud-paper-1 col-lg-4 me-2 mb-3" Elevation="3">
+            <MudPaper Class="mud-paper-1 col-lg-4 me-6 mb-6" Elevation="3">
                 <MudContainer Class="text-center">
                     <MudContainer>
-                        <MudText Class="fs-3 fw-bolder">Filter</MudText>
+                        <MudText Class="mt-5 fs-4">Filter</MudText>
                     </MudContainer>
+                </MudContainer>
+
+                <MudText Class="fs-6 ms-18 mt-5">Categories</MudText>
+
+                <MudContainer Class="text-center">
+
                     <MudContainer>
-                        <MudText Class="fs-6">Categories</MudText>
                         <MudSelect @bind-Value="selectedCategory" Class="p-4 mb-4" T="string" Label="Select Category" AnchorOrigin="Origin.BottomCenter" Style="width: 400px;">
                             @foreach (var category in categories)
                             {
@@ -34,7 +39,7 @@ else
                         </MudSelect>
                     </MudContainer>
 
-                    <MudButton Class="btn-generate fw-bold" OnClick="GenerateIdea" Style="color: white; border-radius: 5px; background-color: rgb(22, 162, 73); height: 50px; width: 300px">
+                    <MudButton Class="btn-generate fw-bold" OnClick="GenerateIdea">
                         GENERATE IDEAS HERE!
                         <div class="moving-icon-container m-3">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="animated-icon">
@@ -55,13 +60,24 @@ else
             @if (isGenerated)
             {
                 <MudPaper Class="mud-paper-2 col-lg-8" Elevation="3">
-                    <MudContainer Class="pb-xxl-4">
-                        <MudText Class="mb-3" Typo="Typo.h5">@generatedCapstone?.Title</MudText>
-                        <MudText Class="text-opacity-25 fs-6 mb-2" Style="opacity: 3px">@generatedCapstone?.Description</MudText>
+                    <MudContainer Class="mt-5">
+                        <MudContainer>
+                            <MudText Class="mb-3 fw-bolder" Typo="Typo.h5">@generatedCapstone?.Title</MudText>
+                            <MudText Class="text-opacity-25 fs-6 mb-2 mt-5">@generatedCapstone?.Description</MudText>
+                        </MudContainer>
                     </MudContainer>
 
-                    <MudContainer Class="w-100 d-flex justify-content-end">
-                        <MudButton Class="btn-nextIdea fw-bold " Style="color: white; background-color: rgb(22, 162, 73); height: 50px; width:120px; border-radius: 5px" OnClick="NextIdea">
+                    <MudContainer Class="mt-3 mb-5">
+                        <MudList Class="d-none d-md-flex" T="string">
+                            <MudListItem></MudListItem>
+                            <MudListItem></MudListItem>
+                            <MudListItem></MudListItem>
+                            <MudListItem></MudListItem>
+                        </MudList>
+                    </MudContainer>
+
+                    <MudContainer Class="d-flex justify-content-end">
+                        <MudButton Class="btn-nextIdea" OnClick="NextIdea">
                             Next
                             <MudIcon Icon="@Icons.Material.Filled.NavigateNext" />
                         </MudButton>
