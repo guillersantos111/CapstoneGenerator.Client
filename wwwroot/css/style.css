@@ -10,10 +10,8 @@ html, body {
 
 .appbar-menu {
     font-weight: bold;
-    font-size: 17px;
+    font-size: 15px;
     color: white;
-    margin-right: 30px;
-    border-spacing: 10px;
 }
 
     .appbar-menu:hover {
@@ -21,7 +19,7 @@ html, body {
         color: azure;
         border: 2px solid;
         transition: all 0.1s ease;
-        font-size: 19px;
+        font-size: 17px;
         font-weight: bold;
         padding: 8px;
         cursor: pointer;
@@ -46,6 +44,20 @@ html, body {
         transform: translateY(1px);
     }
 
+
+/*---------------------------------------------------------------------------------------------------*/
+
+
+.mud-paper-1 {
+    height: 600px;
+    width: 400px;
+    align-items: center;
+}
+
+.mud-paper-2 {
+    height: 600px;
+    width: 650px
+}
 
 /*---------------------------------------------------------------------------------------------------*/
 

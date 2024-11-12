@@ -9,14 +9,12 @@
 
 
 <MudLayout>
-    <MudAppBar Style="background-color: rgb(9, 39, 22); z-index: 100" Elevation="5">
-        <MudContainer Class="d-none d-md-flex">
-            <MudList Class="d-flex" T="string">
-                <MudListItem><a href="/generator" class="appbar-menu">Home</a></MudListItem>
-                <MudListItem><a href="/capstone" class="appbar-menu">Add</a></MudListItem>
-                <MudListItem><a href="/generator" class="appbar-menu">Generate</a></MudListItem>
-            </MudList>
-        </MudContainer>
+    <MudAppBar Style="background-color: rgb(0, 39, 22); z-index: 100" Elevation="5">
+        <MudList Class="d-none d-md-flex justify-content-start" T="string">
+            <MudListItem Class=""><a href="/generator" class="appbar-menu">Home</a></MudListItem>
+            <MudListItem Class=""><a href="/capstone" class="appbar-menu">Add</a></MudListItem>
+            <MudListItem Class=""><a href="/generator" class="appbar-menu">Generate</a></MudListItem>
+        </MudList>
 
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" OnClick="@ToggleDrawer" Edge="Edge.End" Class="d-md-none" />
 
