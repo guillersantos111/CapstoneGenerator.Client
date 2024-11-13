@@ -11,7 +11,7 @@ html, body {
 .appbar-menu {
     font-weight: bold;
     font-size: 15px;
-    color: white;
+    color: lightgray;
 }
 
     .appbar-menu:hover {
@@ -30,6 +30,12 @@ html, body {
 /*---------------------------------------------------------------------------------------------------*/
 
 
+.appbar-menu-list {
+    color: gray;
+}
+
+
+/*---------------------------------------------------------------------------------------------------*/
 .mud-paper-1 {
     height: 600px;
     width: 400px;

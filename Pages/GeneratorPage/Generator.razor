@@ -10,10 +10,10 @@ else
 {
     <MudGrid Justify="Justify.Center">
         <MudContainer Class="text-center m-4">
-            <MudText Typo="Typo.h4" Class="ps-1 mb-5" Style="font-weight: bolder;">
+            <MudText Typo="Typo.h4" Class="ps-1 mb-5" Style="font-weight: bolder; color: white">
                 Capstone Idea Generator Web Application
             </MudText>
-            <MudText Typo="Typo.h6" Class="ps-1 mb-5" Style="font-weight: 100;">
+            <MudText Typo="Typo.h6" Class="ps-1 mb-5" Style="font-weight: 100; color: white">
                 Discover your next capstone ideas!
             </MudText>
         </MudContainer>
@@ -26,7 +26,7 @@ else
                     </MudContainer>
                 </MudContainer>
 
-                <MudText Class="fs-6 ms-18 mt-5">Categories</MudText>
+                <MudText Class="fs-6 ms-18 mt-5" Style="color: white">Categories</MudText>
 
                 <MudContainer Class="text-center">
 
@@ -62,8 +62,8 @@ else
                 <MudPaper Class="mud-paper-2 col-lg-8" Elevation="3">
                     <MudContainer Class="mt-5">
                         <MudContainer>
-                            <MudText Class="mb-3 fw-bolder" Typo="Typo.h5">@generatedCapstone?.Title</MudText>
-                            <MudText Class="text-opacity-25 fs-6 mb-2 mt-5">@generatedCapstone?.Description</MudText>
+                            <MudText Class="mb-3 fw-bolder" Style="color: white;" Typo="Typo.h5">@generatedCapstone?.Title</MudText>
+                            <MudText Class="text-opacity-25 fs-6 mb-2 mt-5" Style="color: white;">@generatedCapstone?.Description</MudText>
                         </MudContainer>
                     </MudContainer>
 
