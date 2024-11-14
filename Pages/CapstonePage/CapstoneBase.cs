@@ -1,6 +1,6 @@
 ﻿using CapstoneGenerator.Client.Components;
 using CapstoneGenerator.Client.Services.Interfaces;
-using CapstoneGenerator.Shared.Models;
+using CapstoneGenerator.Client.Models.DTO;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 

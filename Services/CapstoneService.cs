@@ -1,6 +1,6 @@
 ﻿using CapstoneGenerator.Client.Services.Interfaces;
 using System.Net.Http.Json;
-using CapstoneGenerator.Shared.Models;
+using CapstoneGenerator.Client.Models.DTO;
 namespace CapstoneGenerator.Client.Services
 {
     public class CapstoneService : ICapstoneService
@@ -12,7 +12,7 @@ namespace CapstoneGenerator.Client.Services
             this.httpClient = httpClient;
         }
 
-        private List<CapstonesDTO> Capstones = new();
+        private List<CapstonesDTO> CapstonesDTOs = new();
 
 
         public async Task<IEnumerable<CapstonesDTO>> GetAllCapstones()
@@ -21,9 +21,9 @@ namespace CapstoneGenerator.Client.Services
         }
 
 
-        public async Task<CapstonesDTO> GetCapstoneById(int Id)
+        public async Task<CapstonesDTO> GetCapstoneById(int id)
         {
-            return await httpClient.GetFromJsonAsync<CapstonesDTO>($"/api/Capstone/{Id}");
+            return await httpClient.GetFromJsonAsync<CapstonesDTO>($"/api/Capstone/{id}");
         }
 
 
@@ -34,15 +34,15 @@ namespace CapstoneGenerator.Client.Services
         }
 
 
-        public async Task UpdateCapstone(int Id, CapstonesDTO capstones)
+        public async Task UpdateCapstone(int id, CapstonesDTO capstones)
         {
-            var response = await httpClient.PutAsJsonAsync($"/api/Capstone/{Id}", capstones);
+            var response = await httpClient.PutAsJsonAsync($"/api/Capstone/{id}", capstones);
             response.EnsureSuccessStatusCode();
         }
 
-        public async Task RemoveCapstone(int Id)
+        public async Task RemoveCapstone(int id)
         {
-            var response = await httpClient.DeleteAsync($"/api/Capstone/{Id}");
+            var response = await httpClient.DeleteAsync($"/api/Capstone/{id}");
             response.EnsureSuccessStatusCode();
         }
     }

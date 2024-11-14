@@ -1,7 +1,4 @@
-﻿using CapstoneGenerator.Shared.Models;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading.Tasks;
+﻿using CapstoneGenerator.Client.Models.DTO;
 
 namespace CapstoneGenerator.Client.Services.Interfaces
 {

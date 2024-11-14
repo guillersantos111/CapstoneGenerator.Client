@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapstoneGenerator.Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapstoneGenerator.Server", "..\CapstoneGenerator.Server\CapstoneGenerator.Server.csproj", "{23D1811D-23B0-49DB-98CA-B481C9D379F5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CapstoneGenerator.Shared", "..\CapstoneGenerator.Shared\CapstoneGenerator.Shared.csproj", "{8B2AEBFE-2AB2-4AEE-AEC1-61F3961A96BD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{23D1811D-23B0-49DB-98CA-B481C9D379F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D1811D-23B0-49DB-98CA-B481C9D379F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D1811D-23B0-49DB-98CA-B481C9D379F5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8B2AEBFE-2AB2-4AEE-AEC1-61F3961A96BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8B2AEBFE-2AB2-4AEE-AEC1-61F3961A96BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8B2AEBFE-2AB2-4AEE-AEC1-61F3961A96BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8B2AEBFE-2AB2-4AEE-AEC1-61F3961A96BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿using CapstoneGenerator.Shared.Models;
+﻿using CapstoneGenerator.Client.Models.DTO;
 
 namespace CapstoneGenerator.Client.Services.Interfaces
 {

@@ -1,5 +1,5 @@
 ﻿using CapstoneGenerator.Client.Services.Interfaces;
-using CapstoneGenerator.Shared.Models;
+using CapstoneGenerator.Client.Models.DTO;
 using System.Net.Http.Json;
 
 namespace CapstoneGenerator.Client.Services
